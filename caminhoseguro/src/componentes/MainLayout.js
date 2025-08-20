@@ -1,9 +1,9 @@
 import React, {useState } from 'react';
 import {   MenuFoldOutlined, MenuUnfoldOutlined, UploadOutlined, UserOutlined, VideoCameraOutlined,} from '@ant-design/icons';
 import { Button, Layout, Menu, theme} from 'antd';
-import { Outlet, Link } from 'react-router-dom';
 
-const {Header, Sider, Content} = Layout;
+const {Header, Sider, Content
+} = Layout;
 const MainLayout = () => {
     const [collapsed, setCollapsed] = useState(false);
     const {
@@ -37,12 +37,12 @@ const MainLayout = () => {
                     [{
                         key: '1',
                         icon: < UserOutlined />,
-                        label: <Link to="/">Home</Link>,
+                        label: 'nav 1',
                     },
                     {
                         key: '2',
                         icon: < VideoCameraOutlined />,
-                        label: <Link to="./AboutPage">About</Link>,
+                        label: 'nav 2',
                     },
                     {
                         key: '3',
@@ -81,7 +81,6 @@ const MainLayout = () => {
                     borderRadius: borderRadiusLG,
                 }
             } >
-                <Outlet /> {/* This is where the nested routes will render */}
                 Content
             </Content>
             <Layout.Footer style={

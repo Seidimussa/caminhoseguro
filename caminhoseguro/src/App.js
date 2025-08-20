@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined, } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
   return { key, icon, children, label, };
@@ -24,61 +25,49 @@ const App = () => {
       borderRadiusLG
     },
   } = theme.useToken();
-  return (
-    <>
-      <Layout style={{ minHeight: '100vh' }}>
-        <Sider
-          collapsible
-          collapsed={collapsed}
-          onCollapse={value => setCollapsed(value)}
-        >
-          <div className="demo-logo-vertical" />
-          <Menu
-            theme="dark"
-            defaultSelectedKeys={['1']}
-            mode="inline"
-            items={items}
-          />
-        </Sider>
-        <Layout>
-          <Header
-            style={{
-              padding: 0,
+  return (<><
+    Layout style={{
+      minHeight: '100vh'
+    }}>
+    <
+      Sider collapsible collapsed={collapsed}
+      onCollapse={
+        value => setCollapsed(value)}>
+      <div className="demo-logo-vertical" />
+      <Menu theme="dark"
+        defaultSelectedKeys={['1']}
+        mode="inline"
+        items={items} />
+    </Sider> <Layout>
+      <Header style={{
+        padding: 0,
+        background: colorBgContainer
+      }} /> <Content style={{
+        margin: '0 16px'
+      }}>
+        <Breadcrumb style={{
+          margin: '16px 0'
+        }}
+          items={[{
+            title: 'Mussa'
+          }, {
+            title: 'Programador'
+          }]} /> <
+            div style={{
+              padding: 24,
+              minHeight: 360,
               background: colorBgContainer,
-            }}
-          />
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb
-              style={{ margin: '16px 0' }}
-              items={[
-                { title: 'Mussa' },
-                { title: 'Programador' },
-              ]}
-            />
-            <div
-              style={{
-                padding: 24,
-                minHeight: 360,
-                background: colorBgContainer,
-                borderRadius: borderRadiusLG,
-              }}
-            >
-              Caminho seguro.
-            </div>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            Caminho seguro© {new Date().getFullYear()}.Todos direitos reservados.
-          </Footer>
-        </Layout>
-      </Layout>
-      <Router>
-        <Routes>
-          <Route path="/" element={<MainLayout />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </Router>
-    </>
+              borderRadius: borderRadiusLG,
+            }}>
+          Caminho seguro. </div> </Content> <Footer style={{
+            textAlign: 'center'
+          }}>Caminho seguro© {new Date().getFullYear()}.Todos direitos reservados. </Footer> </Layout> <Layout><Router>
+      <Routes>
+        <Route path="/" element={<MainLayout />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </Router>
   );
 };
         export default App;
